@@ -1,8 +1,6 @@
-# JavaScript Banking Application - OOP Practice
+# Banking Application - OOP Practice
 
 This project aims to build JavaScript classes for a banking application to practice Object-Oriented Programming (OOP) concepts.
-
-## Level 1: Basic Requirements
 
 ### Implement the following classes:
 
@@ -81,66 +79,21 @@ Properties:
 Constructor:
 - Parameters: amount, date
 
-## Level 2: Additional Requirements
+### Other Features
 
-In addition to the basic requirements, enhance the application with the following features:
-
-- Add validation checks to ensure that the data meets certain criteria before performing create or update operations. For example, validate required fields and data format.
-
-## Running the JavaScript Code
-
-Please run the following JavaScript code in bank.js and share your results and findings in the Slack channel
-
-
-```
-const arizonaBank = new Bank("Arizona")
-const westBranch = new Branch("West Branch")
-const sunBranch = new Branch("Sun Branch")
-const customer1 = new Customer("John", 1)
-const customer2 = new Customer("Anna", 2)
-const customer3 = new Customer("John", 3)
-
-arizonaBank.addBranch(westBranch)
-arizonaBank.addBranch(sunBranch)
-arizonaBank.addBranch(westBranch) 
-
-arizonaBank.findBranchByName("bank")
-arizonaBank.findBranchByName("sun")
-
-arizonaBank.addCustomer(westBranch, customer1)
-arizonaBank.addCustomer(westBranch, customer3)
-arizonaBank.addCustomer(sunBranch, customer1)
-arizonaBank.addCustomer(sunBranch, customer2)
-
-arizonaBank.addCustomerTransaction(westBranch, customer1.getId, 3000)
-arizonaBank.addCustomerTransaction(westBranch, customer1.getId, 2000)
-arizonaBank.addCustomerTransaction(westBranch, customer2.getId, 3000)
-
-customer1.addTransactions(-1000)
-console.log(customer1.getBalance())
-console.log(arizonaBank.listCustomers(westBranch, true))
-console.log(arizonaBank.listCustomers(sunBranch,true))
-```
-
-You can add more codes to check the functionality and secrity of your banking system
-
-## Level 3: Bonus Requirements (Optional)
-- Add search functionality to allow users to search for specific customers based on keywords or specific fields, such as by name or Id
-- Peer review: 
-- Review the code and implementation of 2 assignments from other participants.
-- Provide constructive feedback and suggestions for improvement.
-`Please note that the bonus requirements and reviews are optional and can be completed if you have additional time and advanced skills.`
+- Add validation checks to ensure that the data meets certain criteria before performing create or update operations.
+- Add search functionality to allow users to search for specific customers based on keywords or specific fields, such as by name or Id`
 
 # TypeScript Banking Application
-This is the Typescript assignment for the Typescript lecture. 
-Your task is to convert the existing project to TypeScript and add appropriate type annotations to enhance type safety and maintainability.
+
+Convert the existing project to TypeScript and add appropriate type annotations to enhance type safety and maintainability.
 
 ## Guidelines
 
-To complete this assignment, follow the guidelines below:
+To complete this, follow the guidelines below:
 
 1. Set up TypeScript:
-   - Install TypeScript globally on your system if you haven't done so already.
+   - Install TypeScript globally on your system.
    - Create a new TypeScript configuration file (tsconfig.json) in the root folder of your project.
 
 2. Convert JavaScript files to TypeScript:
@@ -148,15 +101,4 @@ To complete this assignment, follow the guidelines below:
    - Define the type or interface for variables and declare the return types of the methods.
    - Ensure that the converted TypeScript code compiles successfully without any type errors.
 
-3. Running the TypeScript Code:
-   Please run the code in bank.ts and share your results and findings in the Slack channel.
-
-### Notes
-
-- Ensure to apply proper type annotations for variables, function parameters, and return types to enhance type safety.
-- Leverage interfaces and custom types wherever appropriate to improve code maintainability and reusability.
-
-Happy coding!
-
-### Deadline: 3th March 2024
 
