@@ -1,0 +1,88 @@
+class Bank {
+    constructor(name) {
+        try {
+            if (typeof name !== "string")
+                throw "Wrong input name";
+            this.name = name;
+            this.branches = [];
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+    addBranch(branch) {
+        if (!this.checkBranch(branch)) {
+            this.branches.push(branch);
+            console.log(`${branch.name} added successfully`);
+            return true;
+        }
+        else {
+            console.log(`${branch.name} already There ..!`);
+            return false;
+        }
+    }
+    addCustomer(branch, customer) {
+        const findBranch = this.branches.find((b) => b.name === branch.name);
+        if (findBranch) {
+            if (!findBranch.customers.includes(customer)) {
+                findBranch.customers = [...findBranch.customers, customer];
+                return true;
+            }
+            else {
+                console.log(`${customer.name} already There ..!`);
+                return false;
+            }
+        }
+        else {
+            console.log(`${branch.name} Not There ..!`);
+            return false;
+        }
+    }
+    addCustomerTransaction(branch, customerId, amount) {
+        const findBranch = this.branches.find((b) => b.name === branch.name);
+        if (findBranch) {
+            findBranch.addCustomerTransaction(customerId, amount);
+            return true;
+        }
+        else {
+            console.log(`The process is unsuccessfully!`);
+            return false;
+        }
+    }
+    findBranchByName(branchName) {
+        return this.branches.find((element) => element.name.toLowerCase() === branchName.toLowerCase());
+    }
+    checkBranch(branch) {
+        return this.branches.includes(branch);
+    }
+    //list customer with transactions detail
+    listCustomers(branch, includeTransactions) {
+        if (this.checkBranch(branch) && branch.customers.length) {
+            if (includeTransactions) {
+                branch.getCustomers().forEach((customer) => {
+                    console.log(`id: ${customer.id} name: ${customer.name}`);
+                    if (customer.transactions.length) {
+                        console.log(`Transaction:`);
+                        customer.getTransactions().map((transaction) => {
+                            console.log(`amount: ${transaction.amount} date: ${transaction.date}`);
+                        });
+                    }
+                    else
+                        console.log("No Transaction yet");
+                });
+            }
+            else
+                this.listCustomerWithoutTransaction(branch);
+        }
+        else {
+            console.log(`There is something wrong, may be ${branch.name} Not There or don't has Customers!`);
+        }
+    }
+    //list only customers data without transactions part
+    listCustomerWithoutTransaction(branch) {
+        console.log(branch
+            .getCustomers()
+            .map((customer) => ({ id: customer.id, name: customer.name })));
+    }
+}
+export default Bank;
